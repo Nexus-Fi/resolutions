@@ -8,26 +8,14 @@ import { useAccount } from 'wagmi';
 import LoginButton from '../components/LoginButton';
 import SignupButton from '../components/SignupButton';
 import Link from 'next/link';
+import Navbar from 'src/components/Navbar';
 
 export default function Page() {
   const { address } = useAccount();
-
   return (
-    <div className="min-h-screen bg-gradient-to-b from-indigo-100 to-white rounded-3xl">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-16 items-center">
-            <div className="flex-shrink-0">
-              <h1 className="text-2xl font-bold text-indigo-600">Resolution DeFi</h1>
-            </div>
-            <div className="flex items-center gap-4">
-              <SignupButton />
-              {!address && <LoginButton />}
-            </div>
-          </div>
-        </div>
-      </nav>
+    <div className="min-h-screen w-full bg-gradient-to-b from-indigo-100 to-white p-5">
+      
+      <Navbar />
 
       {/* Hero Section */}
       <div className="pt-24 pb-16 text-center">

@@ -19,11 +19,11 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Onchain App Template',
-  description: 'Built with OnchainKit',
+  title: 'Resolutions',
+  description: 'Built by NexusFi',
   openGraph: {
-    title: 'Onchain App Template',
-    description: 'Built with OnchainKit',
+    title: 'Resolutions',
+    description: 'Built by NexusFi',
     images: [`${NEXT_PUBLIC_URL}/vibes/vibes-19.png`],
   },
 };
@@ -32,8 +32,8 @@ export default function RootLayout({
   children,
 }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className="flex items-center justify-center">
+    <html>
+      <body className="w-full">
         <OnchainProviders>{children}</OnchainProviders>
       </body>
     </html>
