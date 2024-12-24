@@ -3,6 +3,7 @@
 import { useAccount } from 'wagmi';
 import ResolutionTracker from '../../components/ResolutionTracker';
 import WalletWrapper from '../../components/WalletWrapper';
+import Navbar from 'src/components/Navbar';
 
 export default function DashboardPage() {
   const { address } = useAccount();
@@ -26,8 +27,11 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white py-12">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-b from-indigo-50 to-white p-4 sm:p-8">
+
+      <Navbar />
+
+      <div className="max-w-7xl mx-auto mt-10 px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
           <p className="mt-2 text-gray-600">Track your resolutions and progress</p>

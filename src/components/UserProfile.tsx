@@ -52,6 +52,28 @@ const mockStats: Stats = {
 export default function UserProfile() {
   const { address } = useAccount();
 
+  // Mock achievements data
+  const achievements = [
+    {
+      title: "Early Adopter",
+      description: "Joined in the first month",
+      icon: "🌟",
+      date: "Jan 2024"
+    },
+    {
+      title: "First Resolution",
+      description: "Created your first resolution",
+      icon: "🎯",
+      date: "Jan 2024"
+    },
+    {
+      title: "Milestone Master",
+      description: "Completed 5 milestones",
+      icon: "🏆",
+      date: "Feb 2024"
+    }
+  ];
+
   if (!address) {
     return (
       <div className="text-center py-8">
@@ -61,7 +83,7 @@ export default function UserProfile() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto">
+    <div className="max-w-5xl mx-auto">
       {/* Profile Header */}
       <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mb-6">
         <div className="flex items-center space-x-4">
@@ -99,24 +121,22 @@ export default function UserProfile() {
         </div>
       </div>
 
-      {/* Achievements */}
-      <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
+      {/* New Achievements Section */}
+      <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mb-6">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Achievements</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {mockAchievements.map((achievement) => (
-            <div
-              key={achievement.id}
-              className="flex items-center space-x-3 p-4 bg-gray-50 rounded-lg"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          {achievements.map((achievement, index) => (
+            <div 
+              key={index} 
+              className="bg-gradient-to-br from-indigo-50 to-white p-4 rounded-lg border border-indigo-100"
             >
-              <div className="flex-shrink-0 w-12 h-12 bg-indigo-100 rounded-full flex items-center justify-center text-2xl">
-                {achievement.icon}
-              </div>
-              <div>
-                <h4 className="font-medium text-gray-900">{achievement.title}</h4>
-                <p className="text-sm text-gray-500">{achievement.description}</p>
-                <p className="text-xs text-gray-400 mt-1">
-                  {new Date(achievement.date).toLocaleDateString()}
-                </p>
+              <div className="flex items-center space-x-3">
+                <div className="text-2xl">{achievement.icon}</div>
+                <div>
+                  <h4 className="font-semibold text-gray-900">{achievement.title}</h4>
+                  <p className="text-sm text-gray-600">{achievement.description}</p>
+                  <p className="text-xs text-gray-500 mt-1">{achievement.date}</p>
+                </div>
               </div>
             </div>
           ))}
@@ -124,7 +144,7 @@ export default function UserProfile() {
       </div>
 
       {/* Recent Activity */}
-      <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100 mt-6">
+      <div className="bg-white rounded-xl shadow-sm p-6 border border-gray-100">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Activity</h3>
         <div className="space-y-4">
           <div className="flex items-center justify-between py-3 border-b border-gray-100">

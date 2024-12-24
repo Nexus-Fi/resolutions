@@ -38,8 +38,8 @@ export default function ResolutionCreator() {
     };
 
     return (
-        <div className="max-w-2xl mx-auto bg-white rounded-xl shadow-sm p-6 border border-gray-100">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Create New Resolution</h2>
+        <div className="w-full max-w-2xl mx-auto bg-white rounded-xl shadow-sm p-4 sm:p-6 border border-gray-100">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Create New Resolution</h2>
 
             {/* Progress Steps */}
             <div className="flex justify-between mb-8">

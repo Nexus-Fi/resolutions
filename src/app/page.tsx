@@ -5,16 +5,22 @@ import WalletWrapper from 'src/components/WalletWrapper';
 import { ONCHAINKIT_LINK } from 'src/links';
 import OnchainkitSvg from 'src/svg/OnchainkitSvg';
 import { useAccount } from 'wagmi';
-import LoginButton from '../components/LoginButton';
-import SignupButton from '../components/SignupButton';
 import Link from 'next/link';
 import Navbar from 'src/components/Navbar';
-
+import { useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 export default function Page() {
   const { address } = useAccount();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (address) {
+      router.push('/resolution');
+    }
+  }, [address, router]);  
   return (
     <div className="min-h-screen w-full bg-gradient-to-b from-indigo-100 to-white p-5">
-      
+
       <Navbar />
 
       {/* Hero Section */}
@@ -24,7 +30,7 @@ export default function Page() {
             Stake to Achieve Your Goals
           </h1>
           <p className="text-xl text-gray-600 mb-8">
-            Turn your resolutions into reality with blockchain-powered accountability
+            Turn your resolutions into reality with onchain accountability
           </p>
         </div>
       </div>
@@ -73,7 +79,7 @@ export default function Page() {
         ) : (
           <div className="flex flex-col items-center justify-center text-center mb-16">
             <WalletWrapper
-              className="inline-block"
+              className="inline-block text-white"
               text="Connect Wallet to Start Your Journey"
             />
           </div>

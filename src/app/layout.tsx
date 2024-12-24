@@ -5,6 +5,7 @@ import './global.css';
 import '@coinbase/onchainkit/styles.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import dynamic from 'next/dynamic';
+import Navbar from 'src/components/Navbar';
 
 const OnchainProviders = dynamic(
   () => import('src/components/OnchainProviders'),
@@ -19,11 +20,11 @@ export const viewport = {
 };
 
 export const metadata: Metadata = {
-  title: 'Resolutions',
-  description: 'Built by NexusFi',
+  title: 'Resolutions by NexusFi',
+  description: 'Onchain activity tracker for your resolutions',
   openGraph: {
-    title: 'Resolutions',
-    description: 'Built by NexusFi',
+    title: 'Resolutions by NexusFi',
+    description: 'Onchain activity tracker for your resolutions',
     images: [`${NEXT_PUBLIC_URL}/vibes/vibes-19.png`],
   },
 };
@@ -34,7 +35,11 @@ export default function RootLayout({
   return (
     <html>
       <body className="w-full">
-        <OnchainProviders>{children}</OnchainProviders>
+
+        <OnchainProviders>
+          {/* <Navbar /> */}
+          {children}
+        </OnchainProviders>
       </body>
     </html>
   );
